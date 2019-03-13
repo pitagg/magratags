@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        name: Name
+        email: Email
+        created_at: Created at

@@ -1,0 +1,39 @@
+pt-BR:
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Não foi possível gravar devido ao seguinte erro:"
+          other: "Não foi possível gravar devido a %{count} erros:"
+        body: "Por favor, verifique os seguintes campos:"
+      messages:
+        inclusion: "deve estar incluso na lista"
+        exclusion: "deve ser uma opção disponível"
+        invalid: "deve ser válido"
+        confirmation: "deve ser igual a senha"
+        accepted: "precisa ser aceito"
+        empty: "deve ser preenchido"
+        blank: "deve ser preenchido"
+        blank_translation: "deve ser preenchido em %{language}"
+        too_long: "deve ter no máximo %{count} caracteres"
+        too_short: "deve ter no mínimo %{count} caracteres"
+        wrong_length: "deve ter %{count} caracteres"
+        taken: "já foi utilizado em outro registro"
+        not_a_number: "deve ser um número"
+        greater_than: "deve ser maior do que %{count}"
+        greater_than_or_equal_to: "deve ser maior ou igual a %{count}"
+        equal_to: "deve ser igual a %{count}"
+        less_than: "deve ser menor do que %{count}"
+        less_than_or_equal_to: "deve ser menor ou igual a %{count}"
+        odd: "deve ser ímpar"
+        even: "deve ser par"
+        no_events_available: "A empresa já atingiu o limite de eventos ativos. Encerre outro evento e tente novamente."
+        booth_alrady_used: "%{booth_number} já está reservado para a empresa %{organization_name}"
+        translation_missing: "deve ter uma versão em %{translated_locale}"
+    models:
+      user: Usuário
+    attributes:
+      user:
+        name: Nome
+        email: E-mail
+        created_at: Criado em
