@@ -50,5 +50,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Criar ambiente admin com rails - https://onebitcode.com/rails-admin-tutorial-1/
 gem 'rails_admin', github: 'sferik/rails_admin'
-# gem 'rails_admin_rollincode', '~&gt;; 1.0'
+gem 'rails_admin_rollincode', '~> 1.0'
+
 gem "devise"
+
+# A Ruby interface to the Twitter API.
+gem 'twitter'
