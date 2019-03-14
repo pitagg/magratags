@@ -43,9 +43,7 @@ RailsAdmin.config do |config|
 
   config.model 'User' do
     list do
-      field :name
-      field :email
-      field :created_at
+      fields :name, :email, :created_at
     end
 
     show do
@@ -59,6 +57,22 @@ RailsAdmin.config do |config|
       field :email
       field :password
       field :password_confirmation
+    end
+  end
+
+  config.model 'Search' do
+    list do
+      fields :name, :expression, :ignore_rt, :created_at, :synced_at
+    end
+
+    show do
+      fields :id, :name, :expression, :ignore_rt
+      field :created_at
+      field :synced_at
+    end
+
+    edit do
+      fields :name, :expression, :ignore_rt
     end
   end
 end

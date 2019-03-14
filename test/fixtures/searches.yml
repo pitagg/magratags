@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Menções a MagrateaLabs
+  expression: magratealabs
+  ignore_rt: true
+  last_tweet_id:
+  synced_at:
