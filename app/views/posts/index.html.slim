@@ -1,4 +1,4 @@
-.col-md-3
+.col-md-3.col-sm-12
   .card
     .card-body
       h2= t(:filter)
@@ -17,7 +17,7 @@
           button.btn.btn-success type='submit' = t(:filter)
 
 
-.col-md-6
+.col-md-6.col-sm-12
   - @posts.each do |post|
     = render 'post', post: post
   - if @posts.blank?
