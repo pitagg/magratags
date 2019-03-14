@@ -248,6 +248,7 @@ pt-BR:
     models:
       user: Usuário
       search: Busca
+      credential: Credencial
     attributes:
       user:
         name: Nome
@@ -265,4 +266,7 @@ pt-BR:
         last_tweet_id: ID do último tweet
         created_at: Criado em
         updated_at: Atualizado em
+      credential:
+        provider: Provedor
+        name: Nome
   app_title: 'MagraTags - Monitoramento Social'

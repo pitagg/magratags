@@ -130,3 +130,5 @@ pt-BR:
     help:
       search:
         expression: '%{help} Palavras chave, #hashtag ou "expressão exata" a ser monitorada.'
+      credential:
+        provider: '%{help} Novas opções em breve'
