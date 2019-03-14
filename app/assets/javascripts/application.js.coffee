@@ -13,5 +13,4 @@
 # = require jquery
 # = require jquery_ujs
 # = require turbolinks
-# = require bootstrap-select
 # = require_tree .
