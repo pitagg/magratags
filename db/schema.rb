@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190314060931) do
+ActiveRecord::Schema.define(version: 20190314095539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,31 @@ ActiveRecord::Schema.define(version: 20190314060931) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["user_id"], name: "index_credentials_on_user_id", using: :btree
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "provider_user_id"
+    t.string   "provider_user_name"
+    t.string   "provider_user_image"
+    t.string   "provider_user_screen_name"
+    t.text     "provider_user_description"
+    t.text     "message"
+    t.string   "uri"
+    t.datetime "published_at"
+    t.boolean  "retweeted"
+    t.string   "lang"
+    t.json     "complete_data"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "posts_searches", id: false, force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "search_id"
+    t.index ["post_id"], name: "index_posts_searches_on_post_id", using: :btree
+    t.index ["search_id", "post_id"], name: "index_posts_searches_on_search_id_and_post_id", using: :btree
+    t.index ["search_id"], name: "index_posts_searches_on_search_id", using: :btree
   end
 
   create_table "searches", force: :cascade do |t|

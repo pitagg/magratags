@@ -13,4 +13,7 @@ class SearchTest < ActiveSupport::TestCase
     assert search.errors.details[:expression].map(&:values).flatten.include?(:blank)
   end
 
+  test 'run should be return a Twitter::SearchResults' do
+    assert Search.first.run.is_a?(Twitter::SearchResults)
+  end
 end
