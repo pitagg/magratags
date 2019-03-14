@@ -211,7 +211,7 @@ pt-BR:
     am: ''
     formats:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
-      long: "%d de %B de %Y, %H:%M"
+      long: "%d/%m/%Y às %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
   activerecord:
@@ -247,6 +247,8 @@ pt-BR:
         translation_missing: "deve ter uma versão em %{translated_locale}"
     models:
       user: Usuário
+      search: Busca
+      credential: Credencial
     attributes:
       user:
         name: Nome
@@ -254,5 +256,17 @@ pt-BR:
         password: Senha
         password_confirmation: Confirmação de senha
         created_at: Criado em
+        updated_at: Atualizado em
         remember_me: Lembrar de mim neste dispositivo
+      search:
+        name: Nome
+        expression: Expressão
+        ignore_rt: Ignorar retweets
+        synced_at: Sincronizado em
+        last_tweet_id: ID do último tweet
+        created_at: Criado em
+        updated_at: Atualizado em
+      credential:
+        provider: Provedor
+        name: Nome
   app_title: 'MagraTags - Monitoramento Social'

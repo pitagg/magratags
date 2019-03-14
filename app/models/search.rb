@@ -1,0 +1,18 @@
+class Search < ApplicationRecord
+  validates_presence_of :name, :expression
+
+  scope :by_priority, ->{ order('synced_at asc NULLS FIRST, created_at asc') }
+
+  # Executa a busca na API do Twitter e retorna os tweets encontrados.
+  #TODO: Cada Search deve ser vinculado a 1 ou mais Providers.
+  #TODO: Busca pela credencial deve ser self.provider,credentials.order(:used_at).first (mais tempo sem ser usada = chance de exceder limites da API)
+  def run(credential=nil)
+    client = credential.try(:client) || Credential.first.try(:client)
+    return unless client.is_a?(Twitter::REST::Client)
+    expression = self.expression.gsub('#', '%23')
+    expression << ' -rt' if self.ignore_rt
+    options = {lang: "pt", result_type: "recent", include_entities: true} # TODO: Permitir que o usuário selecione o idioma desejado
+    options.merge!(since_id: self.last_tweet_id) if self.last_tweet_id.present?
+    client.search(expression, options)
+  end
+end

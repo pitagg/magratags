@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider: twitter
+  provider_user_id: 123456
+  provider_user_name: Fulano
+  provider_user_image: MyString
+  provider_user_screen_name: MyString
+  provider_user_description: MyText
+  message: Texto de status
+  uri: MyString
+  published_at: 2019-03-14 06:29:24
+  retweeted: false
+  lang: pt
+  complete_data:

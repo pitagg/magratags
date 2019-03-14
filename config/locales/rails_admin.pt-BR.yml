@@ -95,7 +95,7 @@ pt-BR:
     form:
       cancel: "Cancelar"
       basic_info: "Informação Básica"
-      required: "Obrigatórios"
+      required: "Obrigatório"
       optional: "Opcional"
       one_char: "caracter"
       char_length_up_to: "comprimento até"
@@ -127,3 +127,8 @@ pt-BR:
         default_col_sep: ","
         col_sep: "Separador de colunas"
         col_sep_help: "Deixar em branco para usar omissão ('%{value}')" # value is default_col_sep
+    help:
+      search:
+        expression: '%{help} Palavras chave, #hashtag ou "expressão exata" a ser monitorada.'
+      credential:
+        provider: '%{help} Novas opções em breve'
