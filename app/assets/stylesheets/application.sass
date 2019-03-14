@@ -15,8 +15,9 @@
  */
 
 body
+  font-family: 'Raleway', sans-serif
+  background: transparent no-repeat center center fixed
   background-size: cover
-  background-repeat: no-repeat
   &.bg1
     background-image: url(image-path('colorful_backgrounds/bg1.jpg'))
   &.bg2
@@ -29,10 +30,34 @@ body
     .modal
       display: block
       position: relative
-
+  &.posts
+    padding-top: 75px
+    a
+      color: #37BC9B
+      &:hover
+        color: darken(#37BC9B, 20%)
+    .navbar > .container, .navbar > .container-fluid
+      display: block
+    .navbar-default
+      max-height: 50px
+      padding: 0
+      ul.navbar-nav
+        flex-direction: row
+        li.nav-item
+          max-height: 50px
+  &.rails_admin
+    .dashboard_root_link
+      display: none!important
 .form-check-input-lg
   transform: scale(1.33)
 
 i.fa, i.glyphicon
   padding-left: 4px
   padding-right: 4px
+
+@media (min-width: 992px)
+  .gedf-main
+    padding-left: 4rem
+    padding-right: 4rem
+  .gedf-card
+    margin-bottom: 2.77rem

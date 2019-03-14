@@ -2,7 +2,7 @@ pt-BR:
   views:
   admin:
     home:
-      name: Início
+      name: Timeline
     pagination:
       previous: "&laquo; Anterior"
       next: "Próximo &raquo;"
@@ -42,8 +42,8 @@ pt-BR:
     actions:
       dashboard:
         title: "Administração"
-        menu: "Dashboard"
-        breadcrumb: "Dashboard"
+        menu: "Área administrativa"
+        breadcrumb: "Administração"
       index:
         title: "Lista de %{model_label_plural}"
         menu: "Lista"
@@ -127,6 +127,7 @@ pt-BR:
         default_col_sep: ","
         col_sep: "Separador de colunas"
         col_sep_help: "Deixar em branco para usar omissão ('%{value}')" # value is default_col_sep
+    toggle_navigation: Navegar
     help:
       search:
         expression: '%{help} Palavras chave, #hashtag ou "expressão exata" a ser monitorada.'

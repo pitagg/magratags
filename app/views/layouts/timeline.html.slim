@@ -1,0 +1,47 @@
+doctype html
+html lang=I18n.locale
+  head
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="text/html; charset=utf-8" http-equiv="Content-Type"
+    meta content="width=device-width, initial-scale=1" name="viewport; charset=utf-8"
+    meta content="NONE,NOARCHIVE" name="robots"
+    = csrf_meta_tag
+    = stylesheet_link_tag "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", integrity: "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin: "anonymous"
+    = stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", integrity: "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", crossorigin: "anonymous"
+    = stylesheet_link_tag "rails_admin/rails_admin.css", media: :all
+    = javascript_include_tag "rails_admin/rails_admin.js", 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body.rails_admin class=body_classes
+    = render partial: '/layouts/flash_messages'
+
+    #admin-js data-i18n-options=I18n.t("admin.js").to_json
+    / Initialize JS simple i18n
+    javascript:
+      RailsAdmin.I18n.init('#{I18n.locale}', document.getElementById("admin-js").dataset.i18nOptions);
+    #loading.label.label-warning style='display:none; position:fixed; right:20px; bottom:20px; z-index:100000' = t('admin.loading')
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed data-target="#secondary-navigation" data-toggle="collapse" type="button"
+            .sr-only Navegar
+            .icon-bar
+            .icon-bar
+            .icon-bar
+          a.navbar-brand href=root_path
+            |Magratags&nbsp;
+            small Timeline
+        #secondary-navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right.root_links
+            li.nav-item
+              a href=rails_admin_path = t 'admin.actions.dashboard.menu'
+            li.nav-item
+              = edit_user_link
+
+            li.nav-item
+              = link_to destroy_user_session_path, class: '', method: :delete do
+                span.label.label-danger = t('admin.misc.log_out')
+
+
+    .container-fluid
+      = yield

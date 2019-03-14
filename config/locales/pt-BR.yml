@@ -123,6 +123,7 @@ pt-BR:
       required: é obrigatório(a)
       taken: já está em uso
       not_saved: 'Não foi possível gravar'
+      no_record_found: Nenhum registro encontrado.
       too_long:
         one: 'é muito longo (máximo: 1 caracter)'
         other: 'é muito longo (máximo: %{count} caracteres)'
@@ -269,4 +270,16 @@ pt-BR:
       credential:
         provider: Provedor
         name: Nome
+  posts:
+    index:
+      filter:
+        author: Por autor
+        author_help: 'Nome de usuário para filtrar: Ex.: @pitagg'
+        search: Por busca
+        search_help: Filtra postagens relacionadas às buscas selecionadas
+    post:
+      more_by_user: Mais deste usuário
   app_title: 'MagraTags - Monitoramento Social'
+  filter: Filtrar
+  open: Abrir
+  clear: Limpar

@@ -10,8 +10,8 @@ class Search < ApplicationRecord
   def run(credential=nil)
     client = credential.try(:client) || Credential.first.try(:client)
     return unless client.is_a?(Twitter::REST::Client)
-    expression = self.expression.gsub('#', '%23')
-    expression << ' -rt' if self.ignore_rt
+    expression = self.expression.gsub('#', '%23') # Necessário para Twitter executar corretamente a busca. %23 é o URL encode para '#'.
+    expression << ' -rt' if self.ignore_rt # Instrução para não receber retweets.
     options = {lang: "pt", result_type: "recent", include_entities: true} # TODO: Permitir que o usuário selecione o idioma desejado
     options.merge!(since_id: self.last_tweet_id) if self.last_tweet_id.present?
     client.search(expression, options)
@@ -28,5 +28,9 @@ class Search < ApplicationRecord
       last_tweet_id = post.tweet_id if post.tweet_id.to_i > last_tweet_id.to_i
     end
     self.update synced_at: Time.now, last_tweet_id: last_tweet_id
+  end
+
+  def self.for_select
+    self.all.map{|search| [search.name, search.id]}
   end
 end

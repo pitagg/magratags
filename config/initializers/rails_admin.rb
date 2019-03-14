@@ -41,6 +41,8 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.excluded_models << "Post"
+
   config.model 'User' do
     weight 1
     list do

@@ -2,6 +2,10 @@ class Post < ApplicationRecord
   has_and_belongs_to_many :searches
   validates_uniqueness_of :tweet_id, scope: :provider
 
+  scope :by_author, ->(author){ where(provider_user_screen_name: author.to_s.gsub('@', '')) if author.present? }
+  scope :by_search, ->(*searches){ joins(:searches).where('searches.id': searches.flatten) if searches.present?}
+
+
   # Recebe uma instância de Twitter::Tweet e encontra seu respectivo Post. Se não encontrar, cria um novo registro.
   def self.create_from_tweet(tweet)
     post = self.where(provider: 'twitter', tweet_id: tweet.id.to_s).first

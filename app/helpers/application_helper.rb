@@ -11,4 +11,14 @@ module ApplicationHelper
   def body_classes
     [controller_name, action_name, "bg#{(1..4).to_a.shuffle.first}"].join(' ')
   end
+
+  def edit_user_link
+    return unless current_user.present? && current_user.email.present?
+    link_to edit_user_registration_path do
+      html = []
+      html << image_tag("#{(request.ssl? ? 'https://secure' : 'http://www')}.gravatar.com/avatar/#{Digest::MD5.hexdigest current_user.email}?s=30", alt: '') if RailsAdmin::Config.show_gravatar
+      html << content_tag(:span, current_user.email)
+      html.join.html_safe
+    end
+  end
 end
