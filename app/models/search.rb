@@ -1,4 +1,5 @@
 class Search < ApplicationRecord
+  has_and_belongs_to_many :posts
   validates_presence_of :name, :expression
 
   scope :by_priority, ->{ order('synced_at asc NULLS FIRST, created_at asc') }
@@ -14,5 +15,18 @@ class Search < ApplicationRecord
     options = {lang: "pt", result_type: "recent", include_entities: true} # TODO: Permitir que o usuário selecione o idioma desejado
     options.merge!(since_id: self.last_tweet_id) if self.last_tweet_id.present?
     client.search(expression, options)
+  end
+
+  # Busca por tweets na API do Twitter e os importa para o Banco de Dados
+  def run_and_import(credential=nil)
+    tweets = self.run(credential)
+    return if tweets.count <= 0
+    last_tweet_id = self.last_tweet_id.to_i
+    tweets.each do |tweet|
+      post = Post.create_from_tweet(tweet)
+      post.searches << self
+      last_tweet_id = post.tweet_id if post.tweet_id.to_i > last_tweet_id.to_i
+    end
+    self.update synced_at: Time.now, last_tweet_id: last_tweet_id
   end
 end

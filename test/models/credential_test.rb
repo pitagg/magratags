@@ -43,7 +43,8 @@ class CredentialTest < ActiveSupport::TestCase
     assert search.errors.details[:user_id].map(&:values).flatten.include?(:blank)
   end
 
-  test 'client should be a Twitter::REST::Client' do
-    assert Credential.first.client.is_a?(Twitter::REST::Client)
-  end
+  # Comentado para não expor as credenciais de acesso à API.
+  # test 'client should be a Twitter::REST::Client' do
+  #   assert Credential.first.client.is_a?(Twitter::REST::Client)
+  # end
 end
