@@ -1,0 +1,26 @@
+.modal role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5.modal-title= t('app_title')
+      .modal-body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = bootstrap_devise_error_messages!
+          .form-group
+            = f.label :name
+            = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control form-control-lg'
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg'
+          .form-group
+            = f.label :password
+            = f.password_field :password, autocomplete: 'current-password', class: 'form-control form-control-lg'
+            - if @minimum_password_length
+              small.form-text.text-muted= t('devise.shared.minimum_password_length', count: @minimum_password_length)
+          .form-group
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control form-control-lg'
+          .form-group
+            = f.submit t('.sign_up'), class: 'btn btn-lg btn-success btn-block'
+      .modal-footer
+        = render 'devise/shared/links'

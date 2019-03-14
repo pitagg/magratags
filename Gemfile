@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
+  "https://github.com/#{repo_name}.git"
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
@@ -53,6 +57,11 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
 
 gem "devise"
+# Devise views with Bootstrap 4
+gem 'devise-bootstrap-views', '~> 1.0'
 
 # A Ruby interface to the Twitter API.
 gem 'twitter'
+
+# Use Slim Lang - https://github.com/slim-template/slim-rails
+gem 'slim-rails'

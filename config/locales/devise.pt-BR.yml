@@ -14,6 +14,7 @@ pt-BR:
       unauthenticated: "Você deve estar logado para acessar o sistema."
       unconfirmed: "Você deve confirmar a sua conta antes de continuar."
       not_found_in_database: Email não cadastrado
+      already_authenticated: Você já está logado.
     invitations:
       invitation_token_invalid: "Seu convite é inválido!"
       send_instructions: "Seu convite foi enviado."
@@ -73,15 +74,19 @@ pt-BR:
       edit:
         change_password: "Mudar minha senha"
       new:
-        forgot_password: "Esqueceu sua senha?"
+        forgot_password: "Receba um e-mail com as instruções para troca de senha."
         no_account: "Não há nenhuma conta com este email. Se você aguarda por um convite, seja paciente: estamos trabalhando para enviá-lo o quanto antes."
-        send_password_instructions: "Enviar instruções para alterar senha."
-      send_instructions: "Você receberá em breve um email com instruções sobre como redefinir sua senha."
+        send_password_instructions: "Enviar instruções"
+      user:
+        no_token: Token inválido. Solicite um novo link para recuperação de senha.
+      send_instructions: "Você receberá em breve um email com instruções para recuperar sua senha."
       updated: "Sua senha foi alterada e criptografada com segurança em nosso banco de dados."
     registrations:
       destroyed: "Sua conta foi cancelada. Esperamos vê-lo novamente em breve."
       signed_up: "Você se inscreveu com êxito. Uma confirmação foi enviada para seu e-mail."
       updated: "Sua conta foi atualizada."
+      new:
+        sign_up: Nova Conta
     sessions:
       new:
         alpha_software: "Você está prestes a usar um software alpha."
@@ -97,6 +102,7 @@ pt-BR:
       signed_out: "Sessão encerrada. Volte sempre!"
       signed_in_as: "CUIDADO: Você está logado como %{email}"
     shared:
+      minimum_password_length: 'Deve ter no mínimo %{count} caracteres'
       links:
         forgot_your_password: "Esqueceu sua senha?"
         receive_confirmation: "Não recebeu instruções de confirmação?"

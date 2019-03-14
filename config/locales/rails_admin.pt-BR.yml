@@ -41,7 +41,7 @@ pt-BR:
       message: "Mensagem"
     actions:
       dashboard:
-        title: "Administração do Site"
+        title: "Administração"
         menu: "Dashboard"
         breadcrumb: "Dashboard"
       index:

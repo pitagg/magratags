@@ -28,7 +28,7 @@ $(function () {
     }
   });
 
-  for (var i = 0; i &lt;= array_menu.length; i++) {
+  for (var i = 0; i <= array_menu.length; i++) {
     $('.sub-menu-' + i).wrapAll("");
   }
 

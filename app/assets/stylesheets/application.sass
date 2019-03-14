@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+body
+  background-size: cover
+  background-repeat: no-repeat
+  &.bg1
+    background-image: url(image-path('colorful_backgrounds/bg1.jpg'))
+  &.bg2
+    background-image: url(image-path('colorful_backgrounds/bg2.jpg'))
+  &.bg3
+    background-image: url(image-path('colorful_backgrounds/bg3.jpg'))
+  &.bg4
+    background-image: url(image-path('colorful_backgrounds/bg4.jpg'))
+  &.registrations, &.passwords, &.sessions
+    .modal
+      display: block
+      position: relative
+
+.form-check-input-lg
+  transform: scale(1.33)

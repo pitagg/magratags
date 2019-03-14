@@ -1,0 +1,17 @@
+.modal role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5.modal-title= t('app_title')
+      .modal-body
+        p
+          i= t('.forgot_password')
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = bootstrap_devise_error_messages!
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg'
+          .form-group
+            = f.submit t('.send_password_instructions'), class: 'btn btn-lg btn-success btn-block'
+      .modal-footer
+        = render 'devise/shared/links'

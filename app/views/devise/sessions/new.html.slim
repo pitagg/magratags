@@ -1,0 +1,22 @@
+.modal role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5.modal-title= t('app_title')
+      .modal-body
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg'
+          .form-group
+            = f.label :password
+            = f.password_field :password, autocomplete: 'current-password', class: 'form-control form-control-lg'
+          - if devise_mapping.rememberable?
+            .form-group.form-check
+              = f.check_box :remember_me, class: 'form-check-input form-check-input-lg'
+              = f.label :remember_me, class: 'form-check-label' do
+                = resource.class.human_attribute_name('remember_me')
+          .form-group
+            = f.submit  t('.sign_in'), class: 'btn btn-lg btn-success btn-block'
+      .modal-footer
+        = render 'devise/shared/links'

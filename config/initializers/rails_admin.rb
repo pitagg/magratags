@@ -48,6 +48,12 @@ RailsAdmin.config do |config|
       field :created_at
     end
 
+    show do
+      field :name
+      field :email
+      field :created_at
+    end
+
     edit do
       field :name
       field :email
