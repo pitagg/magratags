@@ -20,7 +20,6 @@ class Search < ApplicationRecord
   # Busca por tweets na API do Twitter e os importa para o Banco de Dados
   def run_and_import(credential=nil)
     tweets = self.run(credential)
-    return if tweets.count <= 0
     last_tweet_id = self.last_tweet_id.to_i
     tweets.each do |tweet|
       post = Post.create_from_tweet(tweet)

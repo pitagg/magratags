@@ -248,7 +248,7 @@ pt-BR:
         translation_missing: "deve ter uma versão em %{translated_locale}"
     models:
       user: Usuário
-      search: Busca
+      search: Expressão
       credential: Credencial
     attributes:
       user:
@@ -260,8 +260,8 @@ pt-BR:
         updated_at: Atualizado em
         remember_me: Lembrar de mim neste dispositivo
       search:
-        name: Nome
-        expression: Expressão
+        name: Título
+        expression: Expressão a monitorar
         ignore_rt: Ignorar retweets
         synced_at: Sincronizado em
         last_tweet_id: ID do último tweet
@@ -275,8 +275,8 @@ pt-BR:
       filter:
         author: Por autor
         author_help: 'Nome de usuário para filtrar: Ex.: @pitagg'
-        search: Por busca
-        search_help: Filtra postagens relacionadas às buscas selecionadas
+        search: Por expressão
+        search_help: Filtra postagens relacionadas à expressão selecionada
     post:
       more_by_user: Mais deste usuário
   app_title: 'MagraTags - Monitoramento Social'

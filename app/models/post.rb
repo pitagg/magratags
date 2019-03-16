@@ -2,7 +2,12 @@ class Post < ApplicationRecord
   has_and_belongs_to_many :searches
   validates_uniqueness_of :tweet_id, scope: :provider
 
-  scope :by_author, ->(author){ where(provider_user_screen_name: author.to_s.gsub('@', '')) if author.present? }
+  default_scope ->{ order('published_at DESC') }
+  scope :by_author, (->(author) do
+    authors = author.to_s.gsub('@', '').split(' ').select(&:present?)
+    return self if author.blank?
+    where(provider_user_screen_name: authors)
+  end)
   scope :by_search, ->(*searches){ joins(:searches).where('searches.id': searches.flatten) if searches.present?}
 
 
