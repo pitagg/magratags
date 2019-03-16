@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   layout 'timeline'
 
+  # Action responsáel pela exibição da Timeline.
   def index
     @posts = Post.order(:published_at)
     @posts = @posts.by_author(params[:by_author]) if params[:by_author].present?

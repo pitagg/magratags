@@ -3,6 +3,8 @@ class Credential < ApplicationRecord
 
   validates_presence_of :provider, :name, :consumer_key, :consumer_secret, :access_token, :access_token_secret, :user_id
 
+  # Cria um client para conexão com a API do Twitter.
+  # @return (Twitter::REST::Client)
   def client
     @client ||= Twitter::REST::Client.new do |config|
       config.consumer_key = self.consumer_key

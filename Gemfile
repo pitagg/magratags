@@ -68,3 +68,6 @@ gem 'slim-rails'
 
 # Transforma URLs de um texto plano em links HTML
 gem 'rails_autolink'
+
+# Ruby documentation tool
+gem 'yard'
